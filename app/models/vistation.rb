@@ -1,0 +1,2 @@
+class Vistation < ApplicationRecord
+end
