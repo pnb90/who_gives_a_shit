@@ -5,5 +5,9 @@ Rails.application.routes.draw do
     get '/restrooms/:id' => 'restrooms#show'
     patch '/restrooms/:id' => 'restrooms#update'
     delete '/restrooms/:id' => 'restrooms#destroy'
+
+    post "/users" => "users#create"
+
+    post "/sessions" => "sessions#create"
   end
 end
