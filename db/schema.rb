@@ -10,12 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_211704) do
+ActiveRecord::Schema.define(version: 2019_02_26_222709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "restrooms", force: :cascade do |t|
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
     t.integer "cleanliness"
     t.integer "uniqueness"
     t.integer "upkeep"
@@ -25,11 +31,11 @@ ActiveRecord::Schema.define(version: 2019_02_26_211704) do
     t.integer "number_of_stalls"
     t.integer "size"
     t.integer "privacy"
-    t.string "location"
-    t.text "summary"
     t.integer "overall_rating"
+    t.text "summary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "restroom_id"
   end
 
   create_table "users", force: :cascade do |t|
