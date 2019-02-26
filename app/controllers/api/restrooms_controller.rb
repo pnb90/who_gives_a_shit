@@ -1,4 +1,5 @@
 class Api::RestroomsController < ApplicationController
+  # before_action :authenticate_user
   def index
     @restrooms = Restroom.all
     render 'index.json.jbuilder'
