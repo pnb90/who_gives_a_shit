@@ -1,0 +1,1 @@
+json.array! @restrooms, partial: 'restroom', as: :restroom

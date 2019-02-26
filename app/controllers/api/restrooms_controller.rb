@@ -1,59 +1,62 @@
 class Api::RestroomsController < ApplicationController
-    def index
-      @recipes = Recipe.all
+  def index
+    @restrooms = Restroom.all
+    render 'index.json.jbuilder'
+  end
 
-      search_terms = params[:search]
-      if search_terms
-        @recipes = @recipes.where("title ilike ?", "%#{search_terms}%")
-      end
-
-      @recipes = @recipes.order(:id => :asc)
-
-      render 'index.json.jbuilder'    
-    end
-
-    def create
-      @recipe = Recipe.new(
-                            title: params[:title],
-                            chef: params[:chef],
-                            ingredients: params[:ingredients],
-                            directions: params[:directions],
-                            prep_time: params[:prep_time],
-                            image_url: params[:image_url]
-                          )
-      if @recipe.save
-        render 'show.json.jbuilder'
-      else
-        render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
-      end  
-    end
-
-    def show
-      @recipe = Recipe.find(params[:id])
+  def create
+    @restroom = Restroom.new(
+                            cleanliness: params[:cleanliness],
+                            uniqueness: params[:uniqueness],
+                            upkeep: params[:upkeep],
+                            toilet_paper_quality: params[:toilet_paper_quality],
+                            amenities: params[:amenities],
+                            accessibility: params[:accessibility],
+                            number_of_stalls: params[:number_of_stalls],
+                            size: params[:size],
+                            privacy: params[:privacy],
+                            location: params[:location],
+                            summary: params[:summary],
+                            overall_rating: params[:overall_rating]
+                            )
+    if @restroom.save
       render 'show.json.jbuilder'
+    else
+      render json: {errors: @restroom.errors.full_messages},status: :unprocessable_entity
     end
+  end
 
-    def update
-      @recipe = Recipe.find(params[:id])
+  def show
+    @restroom = Restroom.find(params[:id])
+    render 'show.json.jbuilder'
+  end
 
-      @recipe.title = params[:title] || @recipe.title
-      @recipe.chef = params[:chef] || @recipe.chef
-      @recipe.ingredients = params[:ingredients] || @recipe.ingredients
-      @recipe.directions = params[:directions] || @recipe.directions
-      @recipe.prep_time = params[:prep_time] || @recipe.prep_time
-      @recipe.image_url = params[:image_url] || @recipe.image_url
+  def update
+    @restroom = Restroom.find(params[:id])
 
-     if @recipe.save
-       render 'show.json.jbuilder'
-     else
-       render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
-     end
+    @restroom.cleanliness = params[:cleanliness] || @restroom.cleanliness
+    @restroom.uniqueness = params[:uniqueness] || @restroom.uniqueness
+    @restroom.upkeep = params[:upkeep] || @restroom.upkeep
+    @restroom.toilet_paper_quality = params[:toilet_paper_quality] || @restroom.toilet_paper_quality
+    @restroom.amenities = params[:amenities] || @restroom.amenities
+    @restroom.accessibility = params[:accessibility] || @restroom.accessibility
+    @restroom.number_of_stalls = params[:number_of_stalls] || @restroom.number_of_stalls
+    @restroom.size = params[:size] || @restroom.size
+    @restroom.privacy = params[:privacy] || @restroom.privacy
+    @restroom.location = params[:location] || @restroom.location
+    @restroom.summary = params[:summary] || @restroom.summary
+    @restroom.overall_rating = params[:overall_rating] || @restroom.overall_rating
+
+    if @restroom.save
+      render 'show.json.jbuilder'
+    else
+      render json: {errors: @restroom.errors.full_messages},status: :unprocessable_entity
     end
+  end
 
-    def destroy
-      recipe = Recipe.find(params[:id])
-      recipe.destroy
-      render json: {message: "Successfully removed recipe."}   
-    end
-
+  def destroy
+    restroom = Restroom.find(params[:id])
+    restroom.destroy
+    render json: {message: "Successfully Destroyed restroom"}
+  end
 end

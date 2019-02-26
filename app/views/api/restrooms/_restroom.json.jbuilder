@@ -1,0 +1,12 @@
+json.cleanliness restroom.cleanliness
+json.uniqueness restroom.uniqueness
+json.upkeep restroom.upkeep
+json.toilet_paper_quality restroom.toilet_paper_quality
+json.amenities restroom.amenities
+json.accessibility restroom.accessibility
+json.number_of_stalls restroom.number_of_stalls
+json.size restroom.size
+json.privacy restroom.privacy
+json.location restroom.location
+json.summary restroom.summary
+json.overall_rating restroom.overall_rating
