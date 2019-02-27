@@ -19,9 +19,12 @@ class Api::ReviewsController < ApplicationController
                             size: params[:size],
                             privacy: params[:privacy],
                             summary: params[:summary],
-                            overall_rating: params[:overall_rating]
+                            overall_rating: params[:overall_rating],
+                            user_id: current_user.id,
+                            restroom_id: params[:restroom_id]
                             )
     if @review.save
+
       render 'show.json.jbuilder'
     else
       render json: {errors: @review.errors.full_messages},status: :unprocessable_entity
