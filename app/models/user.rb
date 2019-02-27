@@ -4,4 +4,6 @@ class User < ApplicationRecord
 
   has_many :visitations
   has_many :restrooms, through: :visitations
+
+  has_many :reviews
 end
