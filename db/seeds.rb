@@ -1,6 +1,7 @@
 User.create!(
                 name: "Phuoc Bui",
                 email: "phuoc@gmail.com",
+                username: "phuocbui",
                 password: "password",
                 password_confirmation: "password"
         )
@@ -8,6 +9,7 @@ User.create!(
 User.create!(
                 name: "Brye Walker",
                 email: "brye@gmail.com",
+                username: "bryewalker",
                 password: "password",
                 password_confirmation: "password"
         )
@@ -15,6 +17,7 @@ User.create!(
 User.create!(
                 name: "Victoria Roos-Walls",
                 email: "victoria@gmail.com",
+                username: "victoriarooswalls",
                 password: "password",
                 password_confirmation: "password"
         )
@@ -22,6 +25,7 @@ User.create!(
 User.create!(
                 name: "Brendon Germany",
                 email: "brendon@gmail.com",
+                username: "brendongermany",
                 password: "password",
                 password_confirmation: "password"
         )
@@ -47,6 +51,7 @@ end
                 privacy: rand(0..5),
                 overall_rating: rand(0..5),
                 summary: rand(0..5),
-                restroom_id: rand(0..21)
+                restroom_id: rand(1..21),
+                user_id: rand(1..4)
                 )
 end
