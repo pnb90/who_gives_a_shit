@@ -30,13 +30,41 @@ User.create!(
                 password_confirmation: "password"
         )
 
-20.times do 
-  address = Faker::Address.street_address
+10.times do
+    first_name = Faker::Name.first_name 
+    last_name = Faker::Name.last_name
 
-  Restroom.create(
-                  location: address
-                  )
+    User.create!(
+                    name: "#{first_name} #{last_name}",
+                    email: "#{first_name}@gmail.com",
+                    username: "#{first_name}#{last_name}",
+                    password: "password",
+                    password_confirmation: "password"
+            )
 end
+
+
+
+Restroom.create(
+                location: "215 W Ohio St Suite 300, Chicago, IL 60654"
+                )
+
+Restroom.create(
+                location: "59 W Hubbard St #2, Chicago, IL 60654"
+                )
+
+Restroom.create(
+                location: "519 N Clark St, Chicago, IL 60654"
+                )
+
+Restroom.create(
+                location: "430 N Michigan Ave, Chicago, IL 60611"
+                )
+
+Restroom.create(
+                location: "100 W Ontario St, Chicago, IL 60654"
+                )
+
 
 50.times do
   Review.create(
@@ -51,7 +79,7 @@ end
                 privacy: rand(0..5),
                 overall_rating: rand(0..5),
                 summary: rand(0..5),
-                restroom_id: rand(1..21),
-                user_id: rand(1..4)
+                restroom_id: rand(1..5),
+                user_id: rand(1..14)
                 )
 end
