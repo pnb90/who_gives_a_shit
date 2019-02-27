@@ -1,8 +1,11 @@
 class Api::RestroomsController < ApplicationController
   # before_action :authenticate_user
   def index
-    response = HTTP.get("https://www.refugerestrooms.org/api/v1/restrooms.json")
-    render json: response.parse.to_json
+    @restrooms = Restroom.all
+    render 'index.json.jbuilder'
+    
+    # response = HTTP.get("https://www.refugerestrooms.org/api/v1/restrooms.json")
+    # render json: response.parse.to_json
   end
 
   def create
