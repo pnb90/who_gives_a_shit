@@ -4,7 +4,7 @@ class Api::RestroomsController < ApplicationController
     @restrooms = Restroom.all
     render 'index.json.jbuilder'
     
-    # response = HTTP.get("https://www.refugerestrooms.org/api/v1/restrooms.json")
+    # response = HTTP.get("https://www.refugerestrooms.org:443/api/v1/restrooms/by_location.json?lat=41.878&lng=-87.620")
     # render json: response.parse.to_json
   end
 
