@@ -67,6 +67,8 @@ Restroom.create(
 
 
 50.times do
+  random_summary = Faker::GreekPhilosophers.quote
+
   Review.create(
                 cleanliness: rand(0..5),
                 uniqueness: rand(0..5),
@@ -77,9 +79,9 @@ Restroom.create(
                 number_of_stalls: rand(0..5),
                 size: rand(0..5),
                 privacy: rand(0..5),
-                overall_rating: rand(0..5),
-                summary: rand(0..5),
+                summary: random_summary,
                 restroom_id: rand(1..5),
                 user_id: rand(1..14)
+                overall_rating: rand(0..5),
                 )
 end
