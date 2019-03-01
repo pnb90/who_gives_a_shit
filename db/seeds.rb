@@ -81,7 +81,7 @@ Restroom.create(
                 privacy: rand(0..5),
                 summary: random_summary,
                 restroom_id: rand(1..5),
-                user_id: rand(1..14)
-                overall_rating: rand(0..5),
+                user_id: rand(1..14),
+                overall_rating: rand(0..5)
                 )
 end
