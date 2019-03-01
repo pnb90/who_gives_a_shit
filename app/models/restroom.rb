@@ -6,4 +6,10 @@ class Restroom < ApplicationRecord
   def count_reviews
     self.reviews.count
   end
+
+  # def rating_average
+  #   self.reviews.each do |review|
+  #     review.over_all
+    
+  # end
 end
