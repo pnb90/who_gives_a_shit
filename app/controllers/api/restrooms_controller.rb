@@ -10,7 +10,8 @@ class Api::RestroomsController < ApplicationController
 
   def create
     @restroom = Restroom.new(
-                            location: params[:location]
+                            location: params[:location],
+                            name: params[:name]
                             )
     if @restroom.save
       render 'show.json.jbuilder'
@@ -28,6 +29,7 @@ class Api::RestroomsController < ApplicationController
     @restroom = Restroom.find(params[:id])
 
     @restroom.location = params[:location] || @restroom.location
+    @restroom.name = params[:name] || @restroom.name
 
     if @restroom.save
       render 'show.json.jbuilder'
