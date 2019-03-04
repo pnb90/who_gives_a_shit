@@ -1,4 +1,7 @@
 class Api::ReviewsController < ApplicationController
+  before_action :authenticate_user, only: [:create]
+  before_action :authenticate_admin, only: [:update, :destroy]
+  
   def index
     @reviews = Review.all
     render 'index.json.jbuilder'
