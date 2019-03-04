@@ -1,5 +1,8 @@
 class Api::RestroomsController < ApplicationController
-  # before_action :authenticate_user
+  before_action :authenticate_user, only: [:create]
+  before_action :authenticate_admin, only: [:update, :destroy]
+
+
   def index
     @restrooms = Restroom.all
     render 'index.json.jbuilder'

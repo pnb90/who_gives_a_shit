@@ -3,7 +3,8 @@ User.create!(
                 email: "phuoc@gmail.com",
                 username: "phuocbui",
                 password: "password",
-                password_confirmation: "password"
+                password_confirmation: "password",
+                admin: true
         )
 
 User.create!(
@@ -11,7 +12,9 @@ User.create!(
                 email: "brye@gmail.com",
                 username: "bryewalker",
                 password: "password",
-                password_confirmation: "password"
+                password_confirmation: "password",
+                admin: true
+
         )
 
 User.create!(
@@ -19,7 +22,9 @@ User.create!(
                 email: "victoria@gmail.com",
                 username: "victoriarooswalls",
                 password: "password",
-                password_confirmation: "password"
+                password_confirmation: "password",
+                admin: true
+
         )
 
 User.create!(
@@ -27,7 +32,9 @@ User.create!(
                 email: "brendon@gmail.com",
                 username: "brendongermany",
                 password: "password",
-                password_confirmation: "password"
+                password_confirmation: "password",
+                admin: true
+
         )
 
 10.times do
@@ -81,7 +88,7 @@ Restroom.create(
                 privacy: rand(0..5),
                 summary: random_summary,
                 restroom_id: rand(1..5),
-                user_id: rand(1..14)
-                overall_rating: rand(0..5),
+                user_id: rand(1..14),
+                overall_rating: rand(0..5)
                 )
 end

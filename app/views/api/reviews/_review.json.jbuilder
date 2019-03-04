@@ -14,6 +14,8 @@ json.summary review.summary
 json.restroom_id review.restroom_id
 json.user_id review.user_id
 
+json.overall review.overall
+
 json.restrooms review.restroom
 
-json.users review.user 
+json.users review.user
